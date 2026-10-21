@@ -1,252 +1,639 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="cherri — a minimal neon entertainment portal for gaming, creator culture, and AI-powered discovery."
-    />
-    <title>cherri | entertainment</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="aurora aurora-one"></div>
-    <div class="aurora aurora-two"></div>
-    <div class="aurora aurora-three"></div>
+* {
+  box-sizing: border-box;
+}
 
-    <header class="topbar">
-      <nav class="nav container">
-        <div class="brand" aria-label="cherri home">
-          <span class="brand-mark">c</span>
-          <span class="brand-name">cherri</span>
-        </div>
+:root {
+  --bg-1: #06070d;
+  --bg-2: #120a12;
+  --bg-3: #1a0b14;
+  --panel: rgba(14, 16, 22, 0.92);
+  --panel-2: rgba(25, 19, 26, 0.9);
+  --chrome: rgba(31, 33, 40, 0.9);
+  --chrome-2: rgba(18, 20, 26, 0.82);
+  --line: rgba(255, 255, 255, 0.06);
+  --line-strong: rgba(255, 255, 255, 0.12);
+  --pink: #f7b4c7;
+  --pink-strong: #ff7fa6;
+  --pink-soft: #ef9ec0;
+  --pink-deep: #ff6c9a;
+  --text: #f9d5de;
+  --text-soft: rgba(245, 208, 219, 0.75);
+  --muted: rgba(255, 255, 255, 0.46);
+  --shadow: rgba(0, 0, 0, 0.45);
+}
 
-        <div class="nav-links">
-          <a href="#home">Home</a>
-          <a href="#games">Games</a>
-          <a href="#platforms">Platforms</a>
-          <a href="#ai">AI</a>
-          <a href="#community">Community</a>
-        </div>
+html, body {
+  margin: 0;
+  min-height: 100%;
+  height: 100%;
+  font-family: "Inter", sans-serif;
+  background: #04070d;
+  color: var(--text);
+}
 
-        <button class="button button-primary start-trigger" type="button">Enter</button>
-      </nav>
-    </header>
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255, 96, 146, 0.08), transparent 26%),
+    radial-gradient(circle at 16% 72%, rgba(255, 108, 154, 0.08), transparent 28%),
+    linear-gradient(180deg, #04070d 0%, #090a10 100%);
+}
 
-    <main id="home">
-      <section class="hero container">
-        <div class="hero-copy">
-          <p class="eyebrow">neon entertainment</p>
-          <h1>
-            calm motion for <span class="gradient-text">creative play</span>
-          </h1>
-          <p class="intro">
-            cherri is a refined digital space for games, creator culture, platform discovery, and AI-powered
-            experiences — shaped by glow, rhythm, and good taste.
-          </p>
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(rgba(255,255,255,0.12) 0.8px, transparent 1px),
+    radial-gradient(rgba(255,255,255,0.05) 0.8px, transparent 1px);
+  background-size: 18px 18px;
+  background-position: 0 0, 9px 9px;
+  opacity: 0.1;
+  pointer-events: none;
+}
 
-          <div class="hero-actions">
-            <button class="button button-primary start-trigger" type="button">Play Now</button>
-            <a href="#games" class="button button-secondary">Explore</a>
-          </div>
+button {
+  font: inherit;
+}
 
-          <div class="meta-row">
-            <div>
-              <span>Curated</span>
-              <strong>600+</strong>
-            </div>
-            <div>
-              <span>Live</span>
-              <strong>24/7</strong>
-            </div>
-            <div>
-              <span>Vibe</span>
-              <strong>∞</strong>
-            </div>
-          </div>
-        </div>
+.page-shell {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  height: 100vh;
+  padding: 0 18px 0 12px;
+  background: rgba(10, 10, 15, 0.84);
+}
 
-        <div class="hero-visual" aria-label="Playable arcade game showcase">
-          <div class="game-shell">
-            <div class="game-topbar">
-              <div class="game-title-wrap">
-                <span class="small-badge">live</span>
-                <h2>Neon Drift</h2>
-              </div>
-              <div class="score-wrap">
-                <span>score</span>
-                <strong id="scoreValue">0</strong>
-              </div>
-            </div>
+.dock {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  width: 64px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  color: var(--muted);
+}
 
-            <canvas id="gameCanvas" width="470" height="315" aria-label="Arcade game canvas"></canvas>
+.dock::before {
+  content: "";
+  position: absolute;
+  left: 18px;
+  top: 12px;
+  bottom: 12px;
+  width: 1px;
+  background: rgba(255,255,255,0.06);
+}
 
-            <div class="game-controls">
-              <div class="hud">
-                <span>best <strong id="bestValue">0</strong></span>
-                <span>lives <strong id="livesValue">3</strong></span>
-              </div>
-              <div class="button-row">
-                <button id="startButton" class="button button-primary" type="button">Start</button>
-                <button id="pauseButton" class="button button-secondary" type="button">Pause</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+.dock-icon {
+  position: relative;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.02);
+  color: rgba(255,255,255,0.8);
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+  line-height: 1;
+  margin-left: 10px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+}
 
-      <section class="featured container" aria-label="Featured categories">
-        <div class="section-heading">
-          <p class="eyebrow">featured</p>
-          <h2>light, rhythm, and flow.</h2>
-        </div>
+.dock-icon.active {
+  background: linear-gradient(180deg, rgba(255, 170, 197, 0.22), rgba(255,255,255,0.04));
+  border-color: rgba(255,255,255,0.06);
+  color: #f9dfe7;
+}
 
-        <div class="feature-grid">
-          <article class="feature-card">
-            <span class="feature-icon">01</span>
-            <h3>Games</h3>
-            <p>Curated arcade loops, racing favorites, and precision play with a smooth neon identity.</p>
-          </article>
-          <article class="feature-card">
-            <span class="feature-icon">02</span>
-            <h3>Platforms</h3>
-            <p>A connected layer for streaming culture, social discovery, and creator-first experiences.</p>
-          </article>
-          <article class="feature-card">
-            <span class="feature-icon">03</span>
-            <h3>AI</h3>
-            <p>Smart tools for discovery, creative thinking, and signal-rich recommendations.</p>
-          </article>
-        </div>
-      </section>
+.browser-window {
+  position: relative;
+  flex: 1;
+  max-width: 1240px;
+  margin: 26px auto 0;
+  height: calc(100vh - 38px);
+  min-height: 700px;
+  border-radius: 30px 30px 20px 20px;
+  border: 1px solid rgba(255,255,255,0.03);
+  background:
+    radial-gradient(circle at 50% 46%, rgba(255, 118, 161, 0.12), transparent 22%),
+    linear-gradient(180deg, rgba(30,16,23,0.94), rgba(10,10,15,0.97));
+  box-shadow: 0 35px 64px rgba(0,0,0,0.45);
+  overflow: hidden;
+}
 
-      <section class="story container" aria-label="About cherri">
-        <div class="story-panel">
-          <div>
-            <p class="eyebrow">about</p>
-            <h2>A modern portal for digital culture.</h2>
-          </div>
-          <p>
-            Built for people who like a cleaner visual rhythm: less noise, more atmosphere, and a sharper
-            sense of identity. cherri brings together gaming, media, creativity, and AI in one elegant,
-            immersive layer.
-          </p>
-        </div>
-      </section>
+.browser-window::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.06), transparent 18%);
+  pointer-events: none;
+}
 
-      <section id="games" class="games container">
-        <div class="section-heading row">
-          <div>
-            <p class="eyebrow">library</p>
-            <h2>game catalog</h2>
-          </div>
+.browser-topbar {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr minmax(320px, 620px) 1fr;
+  align-items: center;
+  padding: 14px 18px 12px;
+  gap: 18px;
+  background: rgba(10, 10, 15, 0.26);
+  border-bottom: 1px solid rgba(255,255,255,0.02);
+}
 
-          <div class="search-row">
-            <input id="gameSearch" type="text" placeholder="Search games..." aria-label="Search games" />
-            <div class="filter-pills" aria-label="Game filters">
-              <button class="filter-chip active" data-filter="all" type="button">All</button>
-              <button class="filter-chip" data-filter="arcade" type="button">Arcade</button>
-              <button class="filter-chip" data-filter="racing" type="button">Racing</button>
-              <button class="filter-chip" data-filter="skill" type="button">Skill</button>
-              <button class="filter-chip" data-filter="action" type="button">Action</button>
-            </div>
-          </div>
-        </div>
+.device-time {
+  justify-self: start;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.02em;
+}
 
-        <div id="gameGrid" class="game-grid" aria-live="polite"></div>
-      </section>
+.browser-toolbar {
+  display: flex;
+  justify-content: center;
+}
 
-      <section id="platforms" class="platforms container">
-        <div class="section-heading">
-          <p class="eyebrow">network</p>
-          <h2>platform presence.</h2>
-        </div>
+.address-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: min(100%, 480px);
+  height: 42px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(37, 31, 37, 0.5);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.72);
+  font-size: 0.9rem;
+  padding: 0 12px;
+}
 
-        <div class="platform-grid">
-          <article class="platform-card youtube">
-            <span>▶</span>
-            <h3>YouTube</h3>
-            <p>Clips, streams, tutorials, and creator-led gaming culture.</p>
-          </article>
-          <article class="platform-card tiktok">
-            <span>♪</span>
-            <h3>TikTok</h3>
-            <p>Fast, viral moments and the mood of modern internet gaming.</p>
-          </article>
-          <article class="platform-card instagram">
-            <span>◎</span>
-            <h3>Instagram</h3>
-            <p>Curated aesthetics, creator updates, and visual storytelling.</p>
-          </article>
-          <article class="platform-card facebook">
-            <span>f</span>
-            <h3>Facebook</h3>
-            <p>Communities, groups, and people sharing favorites and updates.</p>
-          </article>
-        </div>
-      </section>
+.page-badge {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  font-size: 12px;
+  background: rgba(255,255,255,0.04);
+  color: var(--text);
+}
 
-      <section id="ai" class="ai container">
-        <div class="section-heading">
-          <p class="eyebrow">tools</p>
-          <h2>AI-powered discovery.</h2>
-        </div>
+.address-text {
+  flex: 1;
+  text-align: center;
+  letter-spacing: 0.01em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 
-        <div class="ai-grid">
-          <article class="ai-card">
-            <h3>AI Creator</h3>
-            <p>Generate concepts, art direction, and ideas for your next obsession.</p>
-          </article>
-          <article class="ai-card">
-            <h3>AI Assistant</h3>
-            <p>Smart recommendations based on taste, patterns, and behavior.</p>
-          </article>
-          <article class="ai-card">
-            <h3>AI Analytics</h3>
-            <p>Track trends, discoverability, and what is shaping interest.</p>
-          </article>
-        </div>
-      </section>
+.address-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+}
 
-      <section id="community" class="community container">
-        <div class="community-card">
-          <div>
-            <p class="eyebrow">made by lev</p>
-            <h2>A focused identity with a softer kind of glow.</h2>
-            <p class="community-copy">
-              Minimal, expressive, and purpose-built for people who prefer style without friction.
-            </p>
-          </div>
-          <button type="button" class="button button-primary start-trigger">Back to play</button>
-        </div>
-      </section>
-    </main>
+.browser-actions {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255,255,255,0.75);
+}
 
-    <footer class="footer container">
-      <div class="footer-brand">
-        <p>cherri</p>
-        <span>neon entertainment</span>
-      </div>
+.action-icon {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.05);
+  font-size: 0.9rem;
+}
 
-      <div class="footer-links" aria-label="Footer navigation">
-        <a href="#home">home</a>
-        <a href="#games">games</a>
-        <a href="#platforms">platforms</a>
-        <a href="#ai">ai</a>
-      </div>
+.action-icon.add {
+  background: rgba(255,255,255,0.05);
+}
 
-      <div class="footer-meta">
-        <span>made by lev</span>
-      </div>
-    </footer>
+.tab-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 10px;
+  padding: 10px 18px 0;
+}
 
-    <script src="script.js"></script>
-  </body>
-</html>
+.tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 42px;
+  border-radius: 14px 14px 0 0;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.04);
+  border-bottom: none;
+  color: rgba(255,255,255,0.68);
+  font-size: 0.9rem;
+  padding: 0 10px;
+}
+
+.tab.active {
+  background: rgba(255,255,255,0.03);
+  color: #f9dfe7;
+}
+
+.tab-left {
+  justify-content: flex-start;
+  padding-left: 16px;
+  padding-right: 12px;
+}
+
+.tab-right {
+  justify-content: flex-start;
+  padding-left: 14px;
+}
+
+.tab-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #ffb890, #db5f32);
+  box-shadow: 0 0 14px rgba(255, 176, 120, 0.4);
+}
+
+.tab-label, .tab-name {
+  font-weight: 600;
+}
+
+.tab-separator {
+  color: rgba(255,255,255,0.35);
+  margin-inline: 6px 2px;
+}
+
+.tab-muted {
+  color: rgba(255,255,255,0.4);
+}
+
+.tab-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgba(233,161,190,0.25), rgba(255,255,255,0.06));
+  font-size: 14px;
+  color: #f7c2d8;
+}
+
+.tab-logo.subtle {
+  background: rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.7);
+}
+
+.dismiss {
+  margin-left: auto;
+  color: rgba(255,255,255,0.6);
+}
+
+.nav-strip {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 6px 18px 0;
+  margin-top: 0;
+  position: relative;
+}
+
+.home-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: 150px;
+  height: 30px;
+  border-radius: 12px;
+  padding: 0 10px 0 8px;
+  background: linear-gradient(180deg, rgba(255, 157, 191, 0.96), rgba(255, 128, 175, 0.9));
+  color: #1b0a11;
+  font-weight: 700;
+  box-shadow: 0 10px 18px rgba(255, 126, 173, 0.18);
+}
+
+.home-mark {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+  background: rgba(0,0,0,0.16);
+  font-size: 12px;
+}
+
+.home-close {
+  margin-left: auto;
+  font-size: 14px;
+  opacity: 0.72;
+}
+
+.plus-sign {
+  font-size: 22px;
+  color: rgba(255,255,255,0.7);
+  transform: translateY(-1px);
+}
+
+.browser-row {
+  display: grid;
+  grid-template-columns: 120px 1fr 200px;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px 0;
+  color: rgba(255,255,255,0.72);
+  font-size: 0.82rem;
+}
+
+.browser-controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-left: 6px;
+}
+
+.address-url {
+  justify-self: center;
+  width: 100%;
+  max-width: 380px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.01);
+  text-align: center;
+  padding: 8px 12px;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.01em;
+}
+
+.browser-tools {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  font-size: 0.9rem;
+}
+
+.home-screen {
+  position: relative;
+  padding-top: 46px;
+  min-height: 640px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-title-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 18px;
+}
+
+.hero-title {
+  margin: 0;
+  line-height: 1;
+  font-size: clamp(5rem, 9vw, 10rem);
+  letter-spacing: -0.08em;
+  font-weight: 800;
+  color: rgba(255, 150, 186, 0.95);
+  text-shadow: 0 0 18px rgba(255, 116, 164, 0.5), 0 0 35px rgba(255, 93, 150, 0.25);
+  font-family: "Inter", sans-serif;
+}
+
+.hero-subtitle {
+  margin-top: 14px;
+  font-size: 1.08rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: rgba(255, 202, 220, 0.8);
+}
+
+.search-panel {
+  display: flex;
+  align-items: center;
+  width: min(100%, 760px);
+  height: 62px;
+  border-radius: 18px;
+  background: rgba(38, 28, 33, 0.92);
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02), 0 10px 22px rgba(0,0,0,0.18);
+  margin-top: 40px;
+  padding: 0 14px 0 18px;
+}
+
+.search-icon {
+  font-size: 18px;
+  color: rgba(255,255,255,0.52);
+  margin-right: 12px;
+}
+
+.search-placeholder {
+  flex: 1;
+  color: rgba(255,255,255,0.48);
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+}
+
+.search-submit {
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255, 150, 188, 0.95), rgba(255, 105, 157, 0.9));
+  color: #1a0f12;
+  font-weight: 800;
+  font-size: 1.45rem;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 10px 18px rgba(255, 104, 157, 0.25);
+}
+
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(80px, 1fr));
+  gap: 18px;
+  width: min(100%, 700px);
+  margin-top: 28px;
+}
+
+.app-tile {
+  width: 100%;
+  min-height: 90px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+  border-radius: 18px;
+  color: rgba(255,255,255,0.72);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 8px;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+}
+
+.app-icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  font-size: 1.35rem;
+  color: #f8d9e4;
+}
+
+.app-tile span:last-child {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.72);
+}
+
+.status-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.mini-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.78);
+  font-size: 0.8rem;
+}
+
+.mini-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.78);
+}
+
+.clock-card {
+  width: 270px;
+  padding: 26px 18px 22px;
+  margin-top: 32px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+  text-align: center;
+}
+
+.clock-time {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+  color: rgba(255,255,255,0.95);
+}
+
+.clock-date {
+  margin-top: 8px;
+  font-size: 0.98rem;
+  color: rgba(255,255,255,0.72);
+}
+
+.page-meta {
+  position: absolute;
+  right: 18px;
+  bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  font-size: 0.66rem;
+  color: rgba(255,255,255,0.48);
+}
+
+@media (max-width: 980px) {
+  .browser-topbar {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .device-time,
+  .browser-actions {
+    justify-self: center;
+  }
+
+  .tab-row {
+    grid-template-columns: 1fr;
+  }
+
+  .browser-row {
+    grid-template-columns: 1fr;
+  }
+
+  .app-grid {
+    grid-template-columns: repeat(3, minmax(80px, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .page-shell {
+    padding-left: 0;
+  }
+
+  .dock {
+    display: none;
+  }
+
+  .browser-window {
+    margin-left: 0;
+    min-height: 640px;
+    height: calc(100vh - 30px);
+  }
+
+  .browser-topbar {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .tab-row,
+  .nav-strip,
+  .browser-row {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .address-pill {
+    width: 100%;
+  }
+
+  .search-panel {
+    width: calc(100% - 24px);
+  }
+
+  .app-grid {
+    width: calc(100% - 24px);
+    grid-template-columns: repeat(2, minmax(80px, 1fr));
+  }
+}
