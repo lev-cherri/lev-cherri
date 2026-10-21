@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="cherri — a refined neon entertainment portal for gaming, social discovery, creator culture, and AI-powered experiences."
+      content="Chelmsford Rugby Club — community, club spirit, senior and junior rugby, fixtures, and membership information."
     />
-    <title>cherri | entertainment</title>
+    <title>Chelmsford RFC | Rugby Club</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,236 +17,293 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="aurora aurora-one"></div>
-    <div class="aurora aurora-two"></div>
-    <div class="aurora aurora-three"></div>
+    <div class="site-shell">
+      <header class="topbar">
+        <div class="container nav-wrap">
+          <a class="brand" href="#home" aria-label="Chelmsford RFC home">
+            <span class="brand-mark">CRFC</span>
+            <span class="brand-copy">
+              <strong>Chelmsford</strong>
+              <small>Rugby Club</small>
+            </span>
+          </a>
 
-    <header class="topbar">
-      <nav class="nav container">
-        <div class="brand" aria-label="cherri home">
-          <span class="brand-mark">c</span>
-          <span class="brand-name">cherri</span>
+          <nav class="main-nav" aria-label="Main navigation">
+            <a href="#home">Home</a>
+            <a href="#about">Club</a>
+            <a href="#fixtures">Fixtures</a>
+            <a href="#teams">Teams</a>
+            <a href="#news">News</a>
+            <a href="#membership">Membership</a>
+          </nav>
+
+          <a class="button button-primary" href="#membership">Join Today</a>
         </div>
+      </header>
 
-        <div class="nav-links">
-          <a href="#home">Home</a>
-          <a href="#games">Games</a>
-          <a href="#platforms">Platforms</a>
-          <a href="#ai">AI</a>
-          <a href="#community">Community</a>
-        </div>
+      <main id="home">
+        <section class="hero">
+          <div class="container hero-grid">
+            <div class="hero-copy">
+              <p class="eyebrow">Community • Competition • Pride</p>
+              <h1>
+                Play hard.<br />
+                Represent<br />
+                the city.
+              </h1>
+              <p class="intro">
+                Chelmsford RFC is a welcoming rugby club built on ambition, discipline, and togetherness —
+                from junior pathways to senior playing squads and a strong social club culture.
+              </p>
 
-        <button class="button button-primary start-trigger" type="button">Enter Zone</button>
-      </nav>
-    </header>
+              <div class="hero-actions">
+                <a href="#fixtures" class="button button-primary">View Fixtures</a>
+                <a href="#about" class="button button-secondary">About Us</a>
+              </div>
 
-    <main id="home">
-      <section class="hero container">
-        <div class="hero-copy">
-          <p class="eyebrow">neon entertainment zone</p>
-          <h1>
-            chill in the glow of <span class="gradient-text">cherri</span>
-          </h1>
-          <p class="intro">
-            A refined digital playground inspired by calm aurora skies, sharp arcade energy, and the
-            smooth thrill of discovering your next obsession.
-          </p>
+              <div class="hero-stats">
+                <div>
+                  <strong>120+</strong>
+                  <span>Players</span>
+                </div>
+                <div>
+                  <strong>7</strong>
+                  <span>Teams</span>
+                </div>
+                <div>
+                  <strong>30+</strong>
+                  <span>Volunteers</span>
+                </div>
+              </div>
+            </div>
 
-          <div class="hero-actions">
-            <button class="button button-primary start-trigger" type="button">Play Now</button>
-            <a href="#games" class="button button-secondary">Explore Games</a>
+            <div class="hero-panel" aria-label="Club fixture overview">
+              <div class="hero-card top-card">
+                <span class="card-tag">This Weekend</span>
+                <h2>1st XV vs Southend</h2>
+                <p>Saturday 18 May • 3:00 PM • Home Ground</p>
+              </div>
+
+              <div class="mini-grid">
+                <div class="mini-card">
+                  <span>League</span>
+                  <strong>Essex 1</strong>
+                </div>
+                <div class="mini-card accent">
+                  <span>Clubhouse</span>
+                  <strong>Open</strong>
+                </div>
+              </div>
+
+              <div class="score-card">
+                <div>
+                  <small>Last Result</small>
+                  <strong>28 - 19</strong>
+                </div>
+                <span class="status-badge">Wins</span>
+              </div>
+            </div>
           </div>
+        </section>
 
-          <div class="stats">
+        <section id="about" class="section section-light">
+          <div class="container">
+            <div class="section-head">
+              <p class="eyebrow dark">The Club</p>
+              <h2>Built on spirit, ambition and community.</h2>
+            </div>
+
+            <div class="about-grid">
+              <div class="about-copy">
+                <p>
+                  Chelmsford RFC is more than a rugby club. It is a place where players, supporters, and local
+                  families come together around dedication, respect, and the joy of the game.
+                </p>
+                <p>
+                  Whether you are taking your first steps in junior rugby or looking to play at senior level,
+                  Chelmsford offers a welcoming, competitive environment that values effort, team culture, and
+                  long-term development.
+                </p>
+              </div>
+
+              <div class="about-stats-panel">
+                <div class="stat-box">
+                  <strong>1967</strong>
+                  <span>Founded</span>
+                </div>
+                <div class="stat-box">
+                  <strong>4.9/5</strong>
+                  <span>Member experience</span>
+                </div>
+                <div class="stat-box">
+                  <strong>All Ages</strong>
+                  <span>Junior to senior</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="fixtures" class="section section-contrast">
+          <div class="container">
+            <div class="section-head split-head">
+              <div>
+                <p class="eyebrow">Upcoming</p>
+                <h2>Matchday action.</h2>
+              </div>
+              <a href="#membership" class="text-link">Get involved</a>
+            </div>
+
+            <div class="fixture-grid">
+              <article class="fixture-card">
+                <div class="fixture-date">
+                  <span>Sat</span>
+                  <strong>18</strong>
+                  <em>May</em>
+                </div>
+                <div class="fixture-body">
+                  <p class="fixture-kicker">League</p>
+                  <h3>1st XV vs Southend</h3>
+                  <p>3:00 PM • Chelmsford RFC</p>
+                </div>
+              </article>
+
+              <article class="fixture-card">
+                <div class="fixture-date">
+                  <span>Sat</span>
+                  <strong>25</strong>
+                  <em>May</em>
+                </div>
+                <div class="fixture-body">
+                  <p class="fixture-kicker">Junior Rugby</p>
+                  <h3>U18 Festival</h3>
+                  <p>10:30 AM • Training Ground</p>
+                </div>
+              </article>
+
+              <article class="fixture-card">
+                <div class="fixture-date">
+                  <span>Sun</span>
+                  <strong>02</strong>
+                  <em>Jun</em>
+                </div>
+                <div class="fixture-body">
+                  <p class="fixture-kicker">Social</p>
+                  <h3>Club Day & BBQ</h3>
+                  <p>12:00 PM • Clubhouse</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="teams" class="section section-light">
+          <div class="container">
+            <div class="section-head">
+              <p class="eyebrow dark">Teams</p>
+              <h2>Opportunities for every level.</h2>
+            </div>
+
+            <div class="team-grid">
+              <article class="team-card">
+                <span class="team-icon">1XV</span>
+                <h3>Senior Rugby</h3>
+                <p>Competitive senior rugby with a strong culture, professional standards, and determined leadership.</p>
+              </article>
+              <article class="team-card">
+                <span class="team-icon">U18</span>
+                <h3>Junior Pathways</h3>
+                <p>Structured development, coaching, and progression pathways for the next generation of players.</p>
+              </article>
+              <article class="team-card">
+                <span class="team-icon">W</span>
+                <h3>Women’s Rugby</h3>
+                <p>Inclusive, ambitious, and welcoming training environments with room to grow and thrive.</p>
+              </article>
+              <article class="team-card">
+                <span class="team-icon">C</span>
+                <h3>Social Rugby</h3>
+                <p>Fun, energetic playing sessions that keep the club connected beyond league fixtures.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="news" class="section section-news">
+          <div class="container">
+            <div class="section-head split-head">
+              <div>
+                <p class="eyebrow">Latest</p>
+                <h2>Club news and updates.</h2>
+              </div>
+              <a href="#membership" class="text-link">Join the club</a>
+            </div>
+
+            <div class="news-grid">
+              <article class="news-card feature-news">
+                <div class="news-image gradient-one"></div>
+                <div class="news-copy">
+                  <p class="news-meta">Club News • 12 May</p>
+                  <h3>New season preparations underway with pre-season training now in full swing.</h3>
+                </div>
+              </article>
+
+              <article class="news-card">
+                <div class="news-image gradient-two"></div>
+                <div class="news-copy">
+                  <p class="news-meta">Youth Rugby • 08 May</p>
+                  <h3>Junior squads set for festival weekend as player numbers continue to grow.</h3>
+                </div>
+              </article>
+
+              <article class="news-card">
+                <div class="news-image gradient-three"></div>
+                <div class="news-copy">
+                  <p class="news-meta">Membership • 02 May</p>
+                  <h3>Volunteer and social membership opportunities now open for the summer campaign.</h3>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="membership" class="section section-cta">
+          <div class="container cta-box">
             <div>
-              <strong>600+</strong>
-              <span>games</span>
+              <p class="eyebrow">Membership</p>
+              <h2>Join a club that values hard work, inclusivity and camaraderie.</h2>
             </div>
-            <div>
-              <strong>24/7</strong>
-              <span>fun</span>
-            </div>
-            <div>
-              <strong>∞</strong>
-              <span>vibes</span>
-            </div>
+            <a href="#home" class="button button-primary">Become a Member</a>
           </div>
-        </div>
+        </section>
+      </main>
 
-        <div class="hero-visual" aria-label="Playable arcade game showcase">
-          <div class="game-shell">
-            <div class="game-topbar">
-              <div class="game-title-wrap">
-                <span class="small-badge">live</span>
-                <h2>Neon Drift</h2>
-              </div>
-              <div class="score-wrap">
-                <span>Score</span>
-                <strong id="scoreValue">0</strong>
-              </div>
-            </div>
-
-            <canvas id="gameCanvas" width="480" height="340" aria-label="Arcade game canvas"></canvas>
-
-            <div class="game-controls">
-              <div class="hud">
-                <span>Best <strong id="bestValue">0</strong></span>
-                <span>Lives <strong id="livesValue">3</strong></span>
-              </div>
-              <div class="button-row">
-                <button id="startButton" class="button button-primary" type="button">Start</button>
-                <button id="pauseButton" class="button button-secondary" type="button">Pause</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="featured container" aria-label="Featured categories">
-        <div class="section-heading">
-          <p class="eyebrow">favorites</p>
-          <h2>Arcade energy, zero stress.</h2>
-        </div>
-
-        <div class="feature-grid">
-          <article class="feature-card">
-            <span class="feature-icon">⚡</span>
-            <h3>Speed</h3>
-            <p>Fast loops and satisfying reflex moments built for your next quick hit.</p>
-          </article>
-          <article class="feature-card">
-            <span class="feature-icon">🌌</span>
-            <h3>Aurora Mood</h3>
-            <p>Soft neon depth and clean glass styling for a calmer, premium visual tone.</p>
-          </article>
-          <article class="feature-card">
-            <span class="feature-icon">🎮</span>
-            <h3>Game Vault</h3>
-            <p>Arcade classics, action plays, racing favorites, and precision challenges.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="story container" aria-label="Cherri story and platform overview">
-        <div class="story-panel">
+      <footer class="site-footer">
+        <div class="container footer-grid">
           <div>
-            <p class="eyebrow">discover the vibe</p>
-            <h2>More than a game site. A modern entertainment layer.</h2>
-          </div>
-          <p>
-            cherri blends gaming culture, creator energy, and AI-inspired discovery into a focused digital
-            experience. Clean on the surface, immersive underneath — made for people who enjoy the glow,
-            the rhythm, and the thrill of finding new favorites.
-          </p>
-        </div>
-      </section>
-
-      <section id="games" class="games container">
-        <div class="section-heading row">
-          <div>
-            <p class="eyebrow">entertainment zone</p>
-            <h2>Game library</h2>
-          </div>
-
-          <div class="search-row">
-            <input id="gameSearch" type="text" placeholder="Search games..." aria-label="Search games" />
-            <div class="filter-pills" aria-label="Game filters">
-              <button class="filter-chip active" data-filter="all" type="button">All</button>
-              <button class="filter-chip" data-filter="arcade" type="button">Arcade</button>
-              <button class="filter-chip" data-filter="racing" type="button">Racing</button>
-              <button class="filter-chip" data-filter="skill" type="button">Skill</button>
-              <button class="filter-chip" data-filter="action" type="button">Action</button>
+            <div class="brand brand-footer">
+              <span class="brand-mark">CRFC</span>
+              <span class="brand-copy">
+                <strong>Chelmsford</strong>
+                <small>Rugby Club</small>
+              </span>
             </div>
           </div>
-        </div>
 
-        <div id="gameGrid" class="game-grid" aria-live="polite"></div>
-      </section>
-
-      <section id="platforms" class="platforms container">
-        <div class="section-heading">
-          <p class="eyebrow">connect</p>
-          <h2>Stay locked in with your favorite platforms.</h2>
-        </div>
-
-        <div class="platform-grid">
-          <article class="platform-card youtube">
-            <span>▶</span>
-            <h3>YouTube</h3>
-            <p>Guides, streams, highlights, and the moments everyone is posting right now.</p>
-          </article>
-          <article class="platform-card tiktok">
-            <span>♪</span>
-            <h3>TikTok</h3>
-            <p>Short-form gaming culture, loops, hype clips, and viral energy.</p>
-          </article>
-          <article class="platform-card instagram">
-            <span>◎</span>
-            <h3>Instagram</h3>
-            <p>Daily aesthetics, creator content, and the visual identity behind the games.</p>
-          </article>
-          <article class="platform-card facebook">
-            <span>f</span>
-            <h3>Facebook</h3>
-            <p>Community pages, updates, groups, and friendly recommendations.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="ai" class="ai container">
-        <div class="section-heading">
-          <p class="eyebrow">smart tools</p>
-          <h2>AI-powered experiences.</h2>
-        </div>
-
-        <div class="ai-grid">
-          <article class="ai-card">
-            <h3>AI Creator</h3>
-            <p>Generate concepts, visuals, and creative ideas for streams and game content.</p>
-          </article>
-          <article class="ai-card">
-            <h3>AI Assistant</h3>
-            <p>Smart recommendations and discoverability ideas built around how you play.</p>
-          </article>
-          <article class="ai-card">
-            <h3>AI Analytics</h3>
-            <p>Track engagement, discovery, and audience patterns without the noise.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="community" class="community container">
-        <div class="community-card">
-          <div>
-            <p class="eyebrow">made by lev</p>
-            <h2>Built for a clean, fast, neon gaming identity.</h2>
-            <p class="community-copy">
-              A minimal but expressive experience: soft gradients, sharp layout, and an atmosphere that
-              feels premium without losing the playful energy of gaming culture.
-            </p>
+          <div class="footer-links" aria-label="Footer navigation">
+            <a href="#home">Home</a>
+            <a href="#about">Club</a>
+            <a href="#fixtures">Fixtures</a>
+            <a href="#teams">Teams</a>
+            <a href="#news">News</a>
           </div>
-          <button type="button" class="button button-primary start-trigger">Back to Play</button>
+
+          <div class="footer-meta">
+            <span>© <span id="year"></span> Chelmsford RFC</span>
+          </div>
         </div>
-      </section>
-    </main>
-
-    <footer class="footer container">
-      <div class="footer-brand">
-        <p>cherri</p>
-        <span>neon entertainment zone</span>
-      </div>
-
-      <div class="footer-links" aria-label="Footer navigation">
-        <a href="#home">Home</a>
-        <a href="#games">Games</a>
-        <a href="#platforms">Platforms</a>
-        <a href="#ai">AI</a>
-      </div>
-
-      <div class="footer-meta">
-        <span>made by lev</span>
-      </div>
-    </footer>
+      </footer>
+    </div>
 
     <script src="script.js"></script>
   </body>
