@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="cherri — personal browser dashboard and neon home screen inspired by the reference design."
+      content="cherri — dark neon browser home with games, music, social, and creator discovery."
     />
     <title>cherri</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,62 +19,45 @@
   <body>
     <div class="page-shell">
       <aside class="dock" aria-label="Application dock">
-        <button class="dock-icon active" aria-label="Home">
-          <span>⌂</span>
-        </button>
-        <button class="dock-icon" aria-label="Apps">
-          <span>◫</span>
-        </button>
-        <button class="dock-icon" aria-label="Files">
-          <span>◌</span>
-        </button>
-        <button class="dock-icon" aria-label="Music">
-          <span>♫</span>
-        </button>
-        <button class="dock-icon" aria-label="Messages">
-          <span>✦</span>
-        </button>
-        <button class="dock-icon" aria-label="Settings">
-          <span>⚙</span>
-        </button>
+        <button class="dock-icon active" type="button" aria-label="Home"><span>⌂</span></button>
+        <button class="dock-icon" type="button" aria-label="Apps"><span>◫</span></button>
+        <button class="dock-icon" type="button" aria-label="Files"><span>◌</span></button>
+        <button class="dock-icon" type="button" aria-label="Music"><span>♫</span></button>
+        <button class="dock-icon" type="button" aria-label="Messages"><span>✦</span></button>
+        <button class="dock-icon" type="button" aria-label="Settings"><span>⚙</span></button>
       </aside>
 
       <main class="browser-window" aria-label="Browser home page">
         <header class="browser-topbar">
-          <div class="topbar-left">
-            <div class="status-pill">12:12 AM</div>
-            <div class="back-stack">
-              <span>◀</span>
+          <div class="device-time">12:12 AM Wed Oct 21</div>
+
+          <div class="browser-toolbar">
+            <div class="address-pill">
+              <span class="page-badge">◫</span>
+              <span class="address-text">chelmsfordrfc.com</span>
+              <span class="address-actions">↻ ⤴</span>
             </div>
           </div>
 
-          <div class="address-bar">
-            <span class="address-icon">◢</span>
-            <span class="address-text">chelmsfordrfc.com</span>
-            <span class="address-actions">
-              <span>↻</span>
-              <span>⤴</span>
-            </span>
-          </div>
-
-          <div class="topbar-right">
-            <span class="utility-icon">⊕</span>
-            <span class="utility-icon">▣</span>
+          <div class="browser-actions">
+            <span class="action-icon">◌</span>
+            <span class="action-icon add">＋</span>
+            <span class="action-icon">▣</span>
           </div>
         </header>
 
         <div class="tab-row">
           <div class="tab tab-left">
-            <span class="tab-glow"></span>
+            <span class="tab-swatch"></span>
             <span class="tab-label">ArcadePulse</span>
             <span class="tab-separator">|</span>
             <span class="tab-muted">Base44</span>
             <span class="dismiss">×</span>
           </div>
 
-          <div class="tab tab-center active">
+          <div class="tab active">
             <span class="tab-logo">✦</span>
-            <span>cherri</span>
+            <span class="tab-name">cherri</span>
           </div>
 
           <div class="tab tab-right">
@@ -83,24 +66,22 @@
           </div>
         </div>
 
-        <nav class="nav-strip" aria-label="Browser location navigation">
+        <nav class="nav-strip" aria-label="Navigation row">
           <div class="home-pill">
             <span class="home-mark">⌂</span>
             <span>Home</span>
-            <span class="x-mark">×</span>
+            <span class="home-close">×</span>
           </div>
           <span class="plus-sign">＋</span>
         </nav>
 
-        <div class="browser-address-row">
+        <div class="browser-row">
           <div class="browser-controls">
             <span>←</span>
             <span>→</span>
             <span>↻</span>
           </div>
-
           <div class="address-url">cherri://home</div>
-
           <div class="browser-tools">
             <span>⌁</span>
             <span>◫</span>
@@ -113,16 +94,17 @@
         <section class="home-screen">
           <div class="hero-title-wrap">
             <h1 class="hero-title">cherri</h1>
-            <p class="hero-subtitle">tech no night</p>
+            <div class="creator-name">lev</div>
+            <div class="hero-subtitle">tech no night</div>
           </div>
 
           <div class="search-panel" role="search">
             <span class="search-icon">⌕</span>
             <span class="search-placeholder">Search for anything!</span>
-            <button type="button" class="search-submit" aria-label="Search">→</button>
+            <button class="search-submit" type="button" aria-label="Search">→</button>
           </div>
 
-          <div class="app-grid" aria-label="Applications">
+          <div class="app-grid" aria-label="Application shortcuts">
             <button class="app-tile" type="button">
               <span class="app-icon">🎮</span>
               <span>Games</span>
@@ -149,15 +131,37 @@
             </button>
           </div>
 
+          <div class="stats-strip" aria-label="Site stats">
+            <div class="stat-pill">
+              <strong>6000+</strong>
+              <span>games</span>
+            </div>
+            <div class="stat-pill">
+              <strong>1500+</strong>
+              <span>songs</span>
+            </div>
+            <div class="stat-pill">
+              <strong>24/7</strong>
+              <span>social</span>
+            </div>
+          </div>
+
+          <div class="social-strip" aria-label="Social links">
+            <button class="social-pill youtube" type="button">YouTube</button>
+            <button class="social-pill spotify" type="button">Spotify</button>
+            <button class="social-pill discord" type="button">Discord</button>
+            <button class="social-pill twitch" type="button">Twitch</button>
+          </div>
+
           <div class="status-row">
-            <span class="status-pill status-users">
+            <div class="mini-status">
               <span class="mini-icon">◌</span>
-              364 users online
-            </span>
-            <span class="status-pill status-discord">
+              <span>364 users online</span>
+            </div>
+            <div class="mini-status">
               <span class="mini-icon">◉</span>
-              Join our Discord for more links
-            </span>
+              <span>Join our Discord for more links</span>
+            </div>
           </div>
 
           <div class="clock-card">
@@ -166,7 +170,7 @@
           </div>
         </section>
 
-        <div class="page-save">
+        <div class="page-meta">
           <span>Page: 257 ms</span>
           <span>v3.11.0 • f63c8a8-dirty</span>
         </div>
