@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="cherri — dark neon browser home with games, music, social, and creator discovery."
+      content="cherri — dark neon entertainment hub for games, music, content, and AI."
     />
     <title>cherri</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -18,18 +18,16 @@
   </head>
   <body>
     <div class="page-shell">
-      <aside class="dock" aria-label="Application dock">
-        <button class="dock-icon active" type="button" aria-label="Home"><span>⌂</span></button>
-        <button class="dock-icon" type="button" aria-label="Apps"><span>◫</span></button>
-        <button class="dock-icon" type="button" aria-label="Files"><span>◌</span></button>
-        <button class="dock-icon" type="button" aria-label="Music"><span>♫</span></button>
-        <button class="dock-icon" type="button" aria-label="Messages"><span>✦</span></button>
-        <button class="dock-icon" type="button" aria-label="Settings"><span>⚙</span></button>
+      <aside class="dock" aria-label="Main dock">
+        <button class="dock-icon active" type="button" data-view="home" title="Home">⌂</button>
+        <button class="dock-icon" type="button" data-view="games" title="Games">◫</button>
+        <button class="dock-icon" type="button" data-view="music" title="Music">♫</button>
+        <button class="dock-icon" type="button" data-view="assistant" title="Assistant">✦</button>
       </aside>
 
-      <main class="browser-window" aria-label="Browser home page">
+      <main class="browser-window" aria-live="polite">
         <header class="browser-topbar">
-          <div class="device-time">12:12 AM Wed Oct 21</div>
+          <div class="device-time" id="deviceTime">12:22 AM Wed Oct 21</div>
 
           <div class="browser-toolbar">
             <div class="address-pill">
@@ -47,22 +45,22 @@
         </header>
 
         <div class="tab-row">
-          <div class="tab tab-left">
+          <div class="tab tab-left" data-view="games">
             <span class="tab-swatch"></span>
-            <span class="tab-label">ArcadePulse</span>
+            <span class="tab-label">Games</span>
             <span class="tab-separator">|</span>
-            <span class="tab-muted">Base44</span>
+            <span class="tab-muted">Library</span>
             <span class="dismiss">×</span>
           </div>
 
-          <div class="tab active">
+          <div class="tab active" data-view="home">
             <span class="tab-logo">✦</span>
             <span class="tab-name">cherri</span>
           </div>
 
-          <div class="tab tab-right">
-            <span class="tab-logo subtle">◍</span>
-            <span>Discord</span>
+          <div class="tab tab-right" data-view="music">
+            <span class="tab-logo subtle">♫</span>
+            <span>Music</span>
           </div>
         </div>
 
@@ -91,89 +89,196 @@
           </div>
         </div>
 
-        <section class="home-screen">
-          <div class="hero-title-wrap">
-            <h1 class="hero-title">cherri</h1>
-            <div class="creator-name">lev</div>
-            <div class="hero-subtitle">tech no night</div>
-          </div>
-
-          <div class="search-panel" role="search">
-            <span class="search-icon">⌕</span>
-            <span class="search-placeholder">Search for anything!</span>
-            <button class="search-submit" type="button" aria-label="Search">→</button>
-          </div>
-
-          <div class="app-grid" aria-label="Application shortcuts">
-            <button class="app-tile" type="button">
-              <span class="app-icon">🎮</span>
-              <span>Games</span>
-            </button>
-            <button class="app-tile" type="button">
-              <span class="app-icon">◌</span>
-              <span>AI</span>
-            </button>
-            <button class="app-tile" type="button">
-              <span class="app-icon">♫</span>
-              <span>Music</span>
-            </button>
-            <button class="app-tile" type="button">
-              <span class="app-icon">💬</span>
-              <span>Chat</span>
-            </button>
-            <button class="app-tile" type="button">
-              <span class="app-icon">＋</span>
-              <span>Add</span>
-            </button>
-            <button class="app-tile" type="button">
-              <span class="app-icon">▣</span>
-              <span>All Apps</span>
-            </button>
-          </div>
-
-          <div class="stats-strip" aria-label="Site stats">
-            <div class="stat-pill">
-              <strong>6000+</strong>
-              <span>games</span>
+        <section class="view active" id="homeView">
+          <div class="home-screen">
+            <div class="hero-title-wrap">
+              <h1 class="hero-title">cherri</h1>
+              <div class="creator-name">lev</div>
+              <div class="hero-subtitle">everything you need, all in one glow.</div>
             </div>
-            <div class="stat-pill">
-              <strong>1500+</strong>
-              <span>songs</span>
-            </div>
-            <div class="stat-pill">
-              <strong>24/7</strong>
-              <span>social</span>
-            </div>
-          </div>
 
-          <div class="social-strip" aria-label="Social links">
-            <button class="social-pill youtube" type="button">YouTube</button>
-            <button class="social-pill spotify" type="button">Spotify</button>
-            <button class="social-pill discord" type="button">Discord</button>
-            <button class="social-pill twitch" type="button">Twitch</button>
-          </div>
-
-          <div class="status-row">
-            <div class="mini-status">
-              <span class="mini-icon">◌</span>
-              <span>364 users online</span>
+            <div class="search-panel" role="search">
+              <span class="search-icon">⌕</span>
+              <span class="search-placeholder">Search games, music, videos, and AI</span>
+              <button class="search-submit" type="button" aria-label="Search">→</button>
             </div>
-            <div class="mini-status">
-              <span class="mini-icon">◉</span>
-              <span>Join our Discord for more links</span>
-            </div>
-          </div>
 
-          <div class="clock-card">
-            <div class="clock-time" id="clock-time">12:12 AM</div>
-            <div class="clock-date" id="clock-date">Wednesday, October 21</div>
+            <div class="app-grid" aria-label="Quick actions">
+              <button class="app-tile" type="button" data-view="games">
+                <span class="app-icon">🎮</span>
+                <span>Games</span>
+              </button>
+              <button class="app-tile" type="button" data-view="assistant">
+                <span class="app-icon">◌</span>
+                <span>AI</span>
+              </button>
+              <button class="app-tile" type="button" data-view="music">
+                <span class="app-icon">♫</span>
+                <span>Music</span>
+              </button>
+              <button class="app-tile" type="button" data-media="youtube" data-query="gaming streams">
+                <span class="app-icon">▶</span>
+                <span>Videos</span>
+              </button>
+              <button class="app-tile" type="button" data-media="spotify" data-query="chill electronic">
+                <span class="app-icon">◍</span>
+                <span>Spotify</span>
+              </button>
+              <button class="app-tile" type="button" data-media="discord">
+                <span class="app-icon">💬</span>
+                <span>Chat</span>
+              </button>
+            </div>
+
+            <div class="stats-strip" aria-label="Site statistics">
+              <div class="stat-pill"><strong>6000+</strong><span>games</span></div>
+              <div class="stat-pill"><strong>1500+</strong><span>songs</span></div>
+              <div class="stat-pill"><strong>24/7</strong><span>social</span></div>
+            </div>
+
+            <div class="social-strip" aria-label="Social platforms">
+              <button class="social-pill youtube" type="button" data-media="youtube" data-query="best gaming videos">YouTube</button>
+              <button class="social-pill spotify" type="button" data-media="spotify" data-query="lofi beats">Spotify</button>
+              <button class="social-pill discord" type="button" data-media="discord">Discord</button>
+              <button class="social-pill twitch" type="button" data-media="twitch" data-query="gaming streams">Twitch</button>
+            </div>
+
+            <div class="status-row">
+              <div class="mini-status"><span class="mini-icon">◌</span><span>364 users online</span></div>
+              <div class="mini-status"><span class="mini-icon">◉</span><span>Join our Discord for more links</span></div>
+            </div>
+
+            <div class="clock-card">
+              <div class="clock-time" id="clock-time">12:22 AM</div>
+              <div class="clock-date" id="clock-date">Wednesday, October 21</div>
+            </div>
           </div>
         </section>
 
-        <div class="page-meta">
-          <span>Page: 257 ms</span>
-          <span>v3.11.0 • f63c8a8-dirty</span>
-        </div>
+        <section class="view" id="gamesView">
+          <div class="panel-layout">
+            <aside class="side-panel">
+              <div class="side-header">Games</div>
+              <button class="side-link active" type="button">Browse</button>
+              <button class="side-link" type="button">Search</button>
+              <button class="side-link" type="button">Favorites</button>
+              <button class="side-link" type="button">Collections</button>
+            </aside>
+
+            <div class="content-panel">
+              <div class="content-head">
+                <div class="content-title">Game library</div>
+                <div class="content-actions">
+                  <button class="small-button" type="button">Library</button>
+                  <button class="small-button" type="button">Random</button>
+                </div>
+              </div>
+
+              <div class="game-toolbar">
+                <input id="gameSearch" type="text" placeholder="Search games..." aria-label="Search games" />
+                <div class="filter-pills">
+                  <button class="filter-chip active" type="button" data-filter="all">All</button>
+                  <button class="filter-chip" type="button" data-filter="arcade">Arcade</button>
+                  <button class="filter-chip" type="button" data-filter="racing">Racing</button>
+                  <button class="filter-chip" type="button" data-filter="skill">Skill</button>
+                  <button class="filter-chip" type="button" data-filter="action">Action</button>
+                </div>
+              </div>
+
+              <div id="gamesGrid" class="games-grid" aria-live="polite"></div>
+
+              <div class="mini-game">
+                <div class="mini-game-header">
+                  <span>Neon Drift</span>
+                  <span id="gameScore">Score: 0</span>
+                  <span id="bestScore">Best: 0</span>
+                </div>
+                <canvas id="miniGameCanvas" width="540" height="220"></canvas>
+                <div class="mini-game-controls">
+                  <button class="action-button play" id="gameStartBtn" type="button">Start</button>
+                  <button class="action-button" id="gamePauseBtn" type="button">Pause</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="view" id="musicView">
+          <div class="panel-layout music-layout">
+            <aside class="side-panel">
+              <div class="side-header">Music</div>
+              <button class="side-link active" type="button">Browse</button>
+              <button class="side-link" type="button">Search</button>
+              <button class="side-link" type="button">Your Library</button>
+              <button class="side-link" type="button">Playlists</button>
+            </aside>
+
+            <div class="content-panel music-panel">
+              <div class="music-topbar">
+                <div class="content-title">Browse</div>
+                <div class="music-controls">
+                  <button class="icon-button" type="button" id="musicPrev">◀</button>
+                  <button class="icon-button primary" type="button" id="musicPlayToggle">Play</button>
+                  <button class="icon-button" type="button" id="musicNext">▶</button>
+                </div>
+              </div>
+
+              <div class="music-main">
+                <div class="now-playing-card">
+                  <div class="album-art large" aria-hidden="true"></div>
+                  <div class="track-meta">
+                    <div class="track-label">Now playing</div>
+                    <div class="track-name" id="nowPlaying">Six Shot Morning • Fontaines D.C.</div>
+                  </div>
+                </div>
+
+                <div class="playlist-block">
+                  <div class="block-header">Recently played</div>
+                  <div id="songList" class="song-list"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="view" id="assistantView">
+          <div class="panel-layout assistant-layout">
+            <aside class="side-panel compact-panel">
+              <div class="side-header">Cherri AI</div>
+              <button class="side-link active" type="button">New chat</button>
+              <button class="side-link" type="button">Search chats</button>
+              <div class="panel-divider"></div>
+              <div class="usage-box">
+                <div class="usage-row"><span>Usage</span><span class="pill-badge">FREE</span></div>
+                <div class="usage-grid">
+                  <div><strong>0/100</strong><small>tokens</small></div>
+                  <div><strong>100</strong><small>left</small></div>
+                  <div><strong>0</strong><small>chars</small></div>
+                  <div><strong>0</strong><small>images</small></div>
+                </div>
+                <div class="usage-note">Resets 5:00 PM</div>
+              </div>
+            </aside>
+
+            <div class="content-panel ai-panel">
+              <div class="ai-header">
+                <div class="content-title">New Chat</div>
+                <button class="small-button" type="button">Login</button>
+              </div>
+
+              <div id="assistantConversation" class="assistant-conversation">
+                <div class="chat-welcome">What can I help you with today?</div>
+              </div>
+
+              <div id="assistantSuggestions" class="prompt-grid"></div>
+
+              <div class="composer">
+                <input id="assistantInput" type="text" placeholder="Ask cherri..." aria-label="Ask cherri" />
+                <button id="askButton" class="send-button" type="button">↑</button>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
     </div>
 
