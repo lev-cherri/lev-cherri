@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Chelmsford Rugby Club — community, club spirit, senior and junior rugby, fixtures, and membership information."
+      content="cherri — personal browser dashboard and neon home screen inspired by the reference design."
     />
-    <title>Chelmsford RFC | Rugby Club</title>
+    <title>cherri</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,292 +17,160 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="site-shell">
-      <header class="topbar">
-        <div class="container nav-wrap">
-          <a class="brand" href="#home" aria-label="Chelmsford RFC home">
-            <span class="brand-mark">CRFC</span>
-            <span class="brand-copy">
-              <strong>Chelmsford</strong>
-              <small>Rugby Club</small>
+    <div class="page-shell">
+      <aside class="dock" aria-label="Application dock">
+        <button class="dock-icon active" aria-label="Home">
+          <span>⌂</span>
+        </button>
+        <button class="dock-icon" aria-label="Apps">
+          <span>◫</span>
+        </button>
+        <button class="dock-icon" aria-label="Files">
+          <span>◌</span>
+        </button>
+        <button class="dock-icon" aria-label="Music">
+          <span>♫</span>
+        </button>
+        <button class="dock-icon" aria-label="Messages">
+          <span>✦</span>
+        </button>
+        <button class="dock-icon" aria-label="Settings">
+          <span>⚙</span>
+        </button>
+      </aside>
+
+      <main class="browser-window" aria-label="Browser home page">
+        <header class="browser-topbar">
+          <div class="topbar-left">
+            <div class="status-pill">12:12 AM</div>
+            <div class="back-stack">
+              <span>◀</span>
+            </div>
+          </div>
+
+          <div class="address-bar">
+            <span class="address-icon">◢</span>
+            <span class="address-text">chelmsfordrfc.com</span>
+            <span class="address-actions">
+              <span>↻</span>
+              <span>⤴</span>
             </span>
-          </a>
+          </div>
 
-          <nav class="main-nav" aria-label="Main navigation">
-            <a href="#home">Home</a>
-            <a href="#about">Club</a>
-            <a href="#fixtures">Fixtures</a>
-            <a href="#teams">Teams</a>
-            <a href="#news">News</a>
-            <a href="#membership">Membership</a>
-          </nav>
+          <div class="topbar-right">
+            <span class="utility-icon">⊕</span>
+            <span class="utility-icon">▣</span>
+          </div>
+        </header>
 
-          <a class="button button-primary" href="#membership">Join Today</a>
+        <div class="tab-row">
+          <div class="tab tab-left">
+            <span class="tab-glow"></span>
+            <span class="tab-label">ArcadePulse</span>
+            <span class="tab-separator">|</span>
+            <span class="tab-muted">Base44</span>
+            <span class="dismiss">×</span>
+          </div>
+
+          <div class="tab tab-center active">
+            <span class="tab-logo">✦</span>
+            <span>cherri</span>
+          </div>
+
+          <div class="tab tab-right">
+            <span class="tab-logo subtle">◍</span>
+            <span>Discord</span>
+          </div>
         </div>
-      </header>
 
-      <main id="home">
-        <section class="hero">
-          <div class="container hero-grid">
-            <div class="hero-copy">
-              <p class="eyebrow">Community • Competition • Pride</p>
-              <h1>
-                Play hard.<br />
-                Represent<br />
-                the city.
-              </h1>
-              <p class="intro">
-                Chelmsford RFC is a welcoming rugby club built on ambition, discipline, and togetherness —
-                from junior pathways to senior playing squads and a strong social club culture.
-              </p>
+        <nav class="nav-strip" aria-label="Browser location navigation">
+          <div class="home-pill">
+            <span class="home-mark">⌂</span>
+            <span>Home</span>
+            <span class="x-mark">×</span>
+          </div>
+          <span class="plus-sign">＋</span>
+        </nav>
 
-              <div class="hero-actions">
-                <a href="#fixtures" class="button button-primary">View Fixtures</a>
-                <a href="#about" class="button button-secondary">About Us</a>
-              </div>
+        <div class="browser-address-row">
+          <div class="browser-controls">
+            <span>←</span>
+            <span>→</span>
+            <span>↻</span>
+          </div>
 
-              <div class="hero-stats">
-                <div>
-                  <strong>120+</strong>
-                  <span>Players</span>
-                </div>
-                <div>
-                  <strong>7</strong>
-                  <span>Teams</span>
-                </div>
-                <div>
-                  <strong>30+</strong>
-                  <span>Volunteers</span>
-                </div>
-              </div>
-            </div>
+          <div class="address-url">cherri://home</div>
 
-            <div class="hero-panel" aria-label="Club fixture overview">
-              <div class="hero-card top-card">
-                <span class="card-tag">This Weekend</span>
-                <h2>1st XV vs Southend</h2>
-                <p>Saturday 18 May • 3:00 PM • Home Ground</p>
-              </div>
+          <div class="browser-tools">
+            <span>⌁</span>
+            <span>◫</span>
+            <span>☆</span>
+            <span>✦</span>
+            <span>⋯</span>
+          </div>
+        </div>
 
-              <div class="mini-grid">
-                <div class="mini-card">
-                  <span>League</span>
-                  <strong>Essex 1</strong>
-                </div>
-                <div class="mini-card accent">
-                  <span>Clubhouse</span>
-                  <strong>Open</strong>
-                </div>
-              </div>
+        <section class="home-screen">
+          <div class="hero-title-wrap">
+            <h1 class="hero-title">cherri</h1>
+            <p class="hero-subtitle">tech no night</p>
+          </div>
 
-              <div class="score-card">
-                <div>
-                  <small>Last Result</small>
-                  <strong>28 - 19</strong>
-                </div>
-                <span class="status-badge">Wins</span>
-              </div>
-            </div>
+          <div class="search-panel" role="search">
+            <span class="search-icon">⌕</span>
+            <span class="search-placeholder">Search for anything!</span>
+            <button type="button" class="search-submit" aria-label="Search">→</button>
+          </div>
+
+          <div class="app-grid" aria-label="Applications">
+            <button class="app-tile" type="button">
+              <span class="app-icon">🎮</span>
+              <span>Games</span>
+            </button>
+            <button class="app-tile" type="button">
+              <span class="app-icon">◌</span>
+              <span>AI</span>
+            </button>
+            <button class="app-tile" type="button">
+              <span class="app-icon">♫</span>
+              <span>Music</span>
+            </button>
+            <button class="app-tile" type="button">
+              <span class="app-icon">💬</span>
+              <span>Chat</span>
+            </button>
+            <button class="app-tile" type="button">
+              <span class="app-icon">＋</span>
+              <span>Add</span>
+            </button>
+            <button class="app-tile" type="button">
+              <span class="app-icon">▣</span>
+              <span>All Apps</span>
+            </button>
+          </div>
+
+          <div class="status-row">
+            <span class="status-pill status-users">
+              <span class="mini-icon">◌</span>
+              364 users online
+            </span>
+            <span class="status-pill status-discord">
+              <span class="mini-icon">◉</span>
+              Join our Discord for more links
+            </span>
+          </div>
+
+          <div class="clock-card">
+            <div class="clock-time" id="clock-time">12:12 AM</div>
+            <div class="clock-date" id="clock-date">Wednesday, October 21</div>
           </div>
         </section>
 
-        <section id="about" class="section section-light">
-          <div class="container">
-            <div class="section-head">
-              <p class="eyebrow dark">The Club</p>
-              <h2>Built on spirit, ambition and community.</h2>
-            </div>
-
-            <div class="about-grid">
-              <div class="about-copy">
-                <p>
-                  Chelmsford RFC is more than a rugby club. It is a place where players, supporters, and local
-                  families come together around dedication, respect, and the joy of the game.
-                </p>
-                <p>
-                  Whether you are taking your first steps in junior rugby or looking to play at senior level,
-                  Chelmsford offers a welcoming, competitive environment that values effort, team culture, and
-                  long-term development.
-                </p>
-              </div>
-
-              <div class="about-stats-panel">
-                <div class="stat-box">
-                  <strong>1967</strong>
-                  <span>Founded</span>
-                </div>
-                <div class="stat-box">
-                  <strong>4.9/5</strong>
-                  <span>Member experience</span>
-                </div>
-                <div class="stat-box">
-                  <strong>All Ages</strong>
-                  <span>Junior to senior</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="fixtures" class="section section-contrast">
-          <div class="container">
-            <div class="section-head split-head">
-              <div>
-                <p class="eyebrow">Upcoming</p>
-                <h2>Matchday action.</h2>
-              </div>
-              <a href="#membership" class="text-link">Get involved</a>
-            </div>
-
-            <div class="fixture-grid">
-              <article class="fixture-card">
-                <div class="fixture-date">
-                  <span>Sat</span>
-                  <strong>18</strong>
-                  <em>May</em>
-                </div>
-                <div class="fixture-body">
-                  <p class="fixture-kicker">League</p>
-                  <h3>1st XV vs Southend</h3>
-                  <p>3:00 PM • Chelmsford RFC</p>
-                </div>
-              </article>
-
-              <article class="fixture-card">
-                <div class="fixture-date">
-                  <span>Sat</span>
-                  <strong>25</strong>
-                  <em>May</em>
-                </div>
-                <div class="fixture-body">
-                  <p class="fixture-kicker">Junior Rugby</p>
-                  <h3>U18 Festival</h3>
-                  <p>10:30 AM • Training Ground</p>
-                </div>
-              </article>
-
-              <article class="fixture-card">
-                <div class="fixture-date">
-                  <span>Sun</span>
-                  <strong>02</strong>
-                  <em>Jun</em>
-                </div>
-                <div class="fixture-body">
-                  <p class="fixture-kicker">Social</p>
-                  <h3>Club Day & BBQ</h3>
-                  <p>12:00 PM • Clubhouse</p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section id="teams" class="section section-light">
-          <div class="container">
-            <div class="section-head">
-              <p class="eyebrow dark">Teams</p>
-              <h2>Opportunities for every level.</h2>
-            </div>
-
-            <div class="team-grid">
-              <article class="team-card">
-                <span class="team-icon">1XV</span>
-                <h3>Senior Rugby</h3>
-                <p>Competitive senior rugby with a strong culture, professional standards, and determined leadership.</p>
-              </article>
-              <article class="team-card">
-                <span class="team-icon">U18</span>
-                <h3>Junior Pathways</h3>
-                <p>Structured development, coaching, and progression pathways for the next generation of players.</p>
-              </article>
-              <article class="team-card">
-                <span class="team-icon">W</span>
-                <h3>Women’s Rugby</h3>
-                <p>Inclusive, ambitious, and welcoming training environments with room to grow and thrive.</p>
-              </article>
-              <article class="team-card">
-                <span class="team-icon">C</span>
-                <h3>Social Rugby</h3>
-                <p>Fun, energetic playing sessions that keep the club connected beyond league fixtures.</p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section id="news" class="section section-news">
-          <div class="container">
-            <div class="section-head split-head">
-              <div>
-                <p class="eyebrow">Latest</p>
-                <h2>Club news and updates.</h2>
-              </div>
-              <a href="#membership" class="text-link">Join the club</a>
-            </div>
-
-            <div class="news-grid">
-              <article class="news-card feature-news">
-                <div class="news-image gradient-one"></div>
-                <div class="news-copy">
-                  <p class="news-meta">Club News • 12 May</p>
-                  <h3>New season preparations underway with pre-season training now in full swing.</h3>
-                </div>
-              </article>
-
-              <article class="news-card">
-                <div class="news-image gradient-two"></div>
-                <div class="news-copy">
-                  <p class="news-meta">Youth Rugby • 08 May</p>
-                  <h3>Junior squads set for festival weekend as player numbers continue to grow.</h3>
-                </div>
-              </article>
-
-              <article class="news-card">
-                <div class="news-image gradient-three"></div>
-                <div class="news-copy">
-                  <p class="news-meta">Membership • 02 May</p>
-                  <h3>Volunteer and social membership opportunities now open for the summer campaign.</h3>
-                </div>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section id="membership" class="section section-cta">
-          <div class="container cta-box">
-            <div>
-              <p class="eyebrow">Membership</p>
-              <h2>Join a club that values hard work, inclusivity and camaraderie.</h2>
-            </div>
-            <a href="#home" class="button button-primary">Become a Member</a>
-          </div>
-        </section>
+        <div class="page-save">
+          <span>Page: 257 ms</span>
+          <span>v3.11.0 • f63c8a8-dirty</span>
+        </div>
       </main>
-
-      <footer class="site-footer">
-        <div class="container footer-grid">
-          <div>
-            <div class="brand brand-footer">
-              <span class="brand-mark">CRFC</span>
-              <span class="brand-copy">
-                <strong>Chelmsford</strong>
-                <small>Rugby Club</small>
-              </span>
-            </div>
-          </div>
-
-          <div class="footer-links" aria-label="Footer navigation">
-            <a href="#home">Home</a>
-            <a href="#about">Club</a>
-            <a href="#fixtures">Fixtures</a>
-            <a href="#teams">Teams</a>
-            <a href="#news">News</a>
-          </div>
-
-          <div class="footer-meta">
-            <span>© <span id="year"></span> Chelmsford RFC</span>
-          </div>
-        </div>
-      </footer>
     </div>
 
     <script src="script.js"></script>
