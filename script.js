@@ -1,767 +1,424 @@
-:root {
-  --bg: #07141d;
-  --bg-deep: #020a11;
-  --panel: rgba(12, 22, 31, 0.72);
-  --panel-strong: rgba(15, 27, 35, 0.9);
-  --line: rgba(157, 225, 255, 0.16);
-  --cyan: #79e7ff;
-  --green: #77ffb5;
-  --purple: #b684ff;
-  --text: #edf7ff;
-  --muted: rgba(222, 236, 245, 0.72);
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  font-family: "Inter", sans-serif;
-  background:
-    radial-gradient(circle at top left, rgba(137, 149, 255, 0.12), transparent 32%),
-    linear-gradient(180deg, #07141d 0%, #020a11 100%);
-  color: var(--text);
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button,
-input {
-  font: inherit;
-}
-
-button {
-  cursor: pointer;
-}
-
-.container {
-  width: min(1180px, calc(100% - 32px));
-  margin-inline: auto;
-}
-
-.aurora {
-  position: fixed;
-  width: 38rem;
-  height: 38rem;
-  border-radius: 50%;
-  filter: blur(100px);
-  opacity: 0.22;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.aurora-one {
-  background: rgba(130, 105, 255, 0.5);
-  top: -8rem;
-  right: -6rem;
-}
-
-.aurora-two {
-  background: rgba(88, 210, 255, 0.34);
-  left: -10rem;
-  bottom: 6rem;
-}
-
-.aurora-three {
-  background: rgba(119, 255, 181, 0.2);
-  top: 16rem;
-  left: 52%;
-  transform: translateX(-50%);
-}
-
-.topbar,
-.hero,
-.featured,
-.story,
-.games,
-.platforms,
-.ai,
-.community,
-.footer {
-  position: relative;
-  z-index: 1;
-}
-
-.topbar {
-  padding-top: 1.3rem;
-}
-
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 1rem 1.2rem;
-  border: 1px solid var(--line);
-  background: rgba(7, 16, 22, 0.52);
-  border-radius: 18px;
-  backdrop-filter: blur(18px);
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.08);
-}
-
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: lowercase;
-}
-
-.brand-mark {
-  display: grid;
-  place-items: center;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 12px;
-  background: linear-gradient(135deg, rgba(121, 231, 255, 0.95), rgba(182, 132, 255, 0.7));
-  color: #041c25;
-  font-weight: 900;
-}
-
-.brand-name {
-  font-size: 1.05rem;
-  letter-spacing: 0.14em;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 1.8rem;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.nav-links a {
-  transition: opacity 0.2s ease;
-}
-
-.nav-links a:hover,
-.nav-links a:focus-visible {
-  opacity: 1;
-  color: var(--text);
-}
-
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.9rem 1.3rem;
-  border-radius: 999px;
-  border: 1px solid transparent;
-  font-weight: 700;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.button:hover,
-.button:focus-visible {
-  transform: translateY(-1px);
-}
-
-.button-primary {
-  background: linear-gradient(135deg, rgba(121, 231, 255, 0.95), rgba(119, 255, 181, 0.9));
-  color: #06131a;
-  box-shadow: 0 10px 26px rgba(81, 211, 255, 0.2);
-}
-
-.button-secondary {
-  border-color: var(--line);
-  background: rgba(255, 255, 255, 0.015);
-  color: var(--text);
-}
-
-.hero {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  align-items: center;
-  gap: 2.25rem;
-  padding-top: 5rem;
-  padding-bottom: 3rem;
-}
-
-.eyebrow {
-  margin: 0 0 1rem;
-  font-size: 0.75rem;
-  letter-spacing: 0.26em;
-  text-transform: uppercase;
-  color: rgba(121, 231, 255, 0.82);
-  font-weight: 700;
-}
-
-.hero-copy h1 {
-  margin: 0;
-  font-size: clamp(3.2rem, 6vw, 5.5rem);
-  line-height: 0.94;
-  letter-spacing: -0.08em;
-  text-transform: lowercase;
-  font-weight: 800;
-}
-
-.gradient-text {
-  background: linear-gradient(135deg, var(--cyan), var(--green), var(--purple));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.intro {
-  max-width: 38rem;
-  margin-top: 1.1rem;
-  color: var(--muted);
-  font-size: 1.08rem;
-  line-height: 1.75;
-}
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 1.7rem;
-}
-
-.meta-row {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  margin-top: 2rem;
-  flex-wrap: wrap;
-}
-
-.meta-row div {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-}
-
-.meta-row span {
-  color: var(--muted);
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.meta-row strong {
-  font-size: 1.4rem;
-}
-
-.hero-visual {
-  display: flex;
-  justify-content: center;
-}
-
-.game-shell {
-  width: min(100%, 500px);
-  padding: 1rem;
-  border-radius: 28px;
-  border: 1px solid var(--line);
-  background: linear-gradient(180deg, rgba(13, 22, 30, 0.9), rgba(9, 14, 20, 0.92));
-  box-shadow: 0 28px 48px rgba(0, 0, 0, 0.18), 0 0 36px rgba(81, 211, 255, 0.06);
-}
-
-.game-topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.8rem;
-  padding: 0.3rem 0.3rem 0.9rem;
-}
-
-.game-title-wrap {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.small-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.25rem 0.55rem;
-  border-radius: 999px;
-  background: rgba(119, 255, 181, 0.12);
-  color: var(--green);
-  font-size: 0.62rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.game-title-wrap h2 {
-  margin: 0;
-  font-size: 1.1rem;
-}
-
-.score-wrap {
-  text-align: right;
-}
-
-.score-wrap span {
-  display: block;
-  color: var(--muted);
-  font-size: 0.68rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.score-wrap strong {
-  display: block;
-  font-size: 1.46rem;
-}
-
-#gameCanvas {
-  display: block;
-  width: 100%;
-  height: auto;
-  background: linear-gradient(180deg, rgba(7, 16, 22, 0.95), rgba(10, 17, 24, 0.98));
-  border-radius: 18px;
-  border: 1px solid rgba(144, 206, 255, 0.2);
-}
-
-.game-controls {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.8rem;
-  padding-top: 0.9rem;
-}
-
-.hud {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  color: var(--muted);
-  font-size: 0.8rem;
-  text-transform: lowercase;
-}
-
-.hud strong {
-  color: var(--text);
-}
-
-.button-row {
-  display: flex;
-  gap: 0.6rem;
-}
-
-.featured,
-.games,
-.platforms,
-.ai {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-
-.section-heading {
-  margin-bottom: 1.5rem;
-}
-
-.section-heading h2 {
-  margin: 0;
-  font-size: clamp(2rem, 4vw, 3rem);
-  letter-spacing: -0.06em;
-  text-transform: lowercase;
-}
-
-.story {
-  padding-top: 1rem;
-  padding-bottom: 1.5rem;
-}
-
-.story-panel {
-  display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: 1.2rem;
-  align-items: center;
-  padding: 2rem;
-  border-radius: 26px;
-  border: 1px solid var(--line);
-  background: rgba(11, 18, 24, 0.5);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
-}
-
-.story-panel h2 {
-  margin: 0;
-  font-size: clamp(2.1rem, 4vw, 2.9rem);
-  letter-spacing: -0.06em;
-  text-transform: lowercase;
-}
-
-.story-panel p {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.8;
-  font-size: 1.04rem;
-}
-
-.feature-grid,
-.platform-grid,
-.ai-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.2rem;
-}
-
-.feature-card,
-.platform-card,
-.ai-card {
-  padding: 1.5rem;
-  border-radius: 22px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  background: linear-gradient(180deg, rgba(15, 27, 34, 0.84), rgba(10, 16, 21, 0.9));
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.06);
-}
-
-.feature-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.7rem;
-  height: 2.7rem;
-  border-radius: 12px;
-  background: rgba(121, 231, 255, 0.07);
-  color: var(--cyan);
-  font-size: 0.82rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-.feature-card h3,
-.platform-card h3,
-.ai-card h3 {
-  margin: 0 0 0.65rem;
-  font-size: 1.15rem;
-}
-
-.feature-card p,
-.platform-card p,
-.ai-card p {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.7;
-}
-
-.row {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 1.4rem;
-  flex-wrap: wrap;
-}
-
-.search-row {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0.9rem;
-}
-
-#gameSearch {
-  width: min(100%, 340px);
-  padding: 0.9rem 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 999px;
-  background: rgba(9, 17, 20, 0.7);
-  color: var(--text);
-  outline: none;
-}
-
-#gameSearch:focus {
-  border-color: rgba(121, 231, 255, 0.52);
-  box-shadow: 0 0 0 3px rgba(121, 231, 255, 0.08);
-}
-
-.filter-pills {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 0.55rem;
-}
-
-.filter-chip {
-  appearance: none;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  background: rgba(255, 255, 255, 0.015);
-  color: var(--text);
-  border-radius: 999px;
-  padding: 0.6rem 0.9rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.filter-chip.active,
-.filter-chip:hover,
-.filter-chip:focus-visible {
-  background: rgba(121, 231, 255, 0.08);
-  border-color: rgba(121, 231, 255, 0.34);
-  color: var(--cyan);
-}
-
-.game-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1.1rem;
-}
-
-.game-card {
-  padding: 1rem;
-  border-radius: 22px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  background: linear-gradient(180deg, rgba(17, 27, 35, 0.9), rgba(12, 18, 24, 0.94));
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-
-.game-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(121, 231, 255, 0.3);
-}
-
-.game-art {
-  height: 160px;
-  border-radius: 16px;
-  margin-bottom: 0.9rem;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(144, 206, 255, 0.14);
-  background: linear-gradient(135deg, rgba(82, 214, 255, 0.16), rgba(182, 132, 255, 0.14));
-}
-
-.game-art::before {
-  content: "";
-  position: absolute;
-  inset: 12% 10%;
-  border-radius: 16px;
-  background: linear-gradient(135deg, rgba(121, 231, 255, 0.48), rgba(182, 132, 255, 0.3));
-  box-shadow: inset 0 0 26px rgba(255, 255, 255, 0.08);
-}
-
-.game-card h3 {
-  margin: 0 0 0.4rem;
-  font-size: 1.1rem;
-}
-
-.game-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.75rem;
-  color: rgba(232, 244, 255, 0.6);
-  font-size: 0.76rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.game-tag {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.45rem 0.7rem;
-  border-radius: 999px;
-  background: rgba(121, 231, 255, 0.07);
-  color: var(--cyan);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.game-card .button {
-  width: 100%;
-  margin-top: 0.85rem;
-  padding-block: 0.7rem;
-  font-size: 0.82rem;
-}
-
-.platform-grid,
-.ai-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
-.platform-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
-
-.platform-card span {
-  display: inline-grid;
-  place-items: center;
-  width: 3.1rem;
-  height: 3.1rem;
-  border-radius: 16px;
-  font-weight: 800;
-  font-size: 1.25rem;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.04);
-}
-
-.youtube span { color: #ff6a6a; }
-.tiktok span { color: #ff80d8; }
-.instagram span { color: #f9b4ea; }
-.facebook span { color: #83b9ff; }
-
-.ai-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.community-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
-  padding: 2rem;
-  border-radius: 28px;
-  border: 1px solid var(--line);
-  background: rgba(11, 18, 24, 0.52);
-  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.07);
-}
-
-.community-card h2 {
-  margin: 0;
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
-  letter-spacing: -0.05em;
-  text-transform: lowercase;
-}
-
-.community-copy {
-  margin-top: 0.8rem;
-  max-width: 46rem;
-  color: var(--muted);
-  line-height: 1.8;
-}
-
-.footer {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr auto;
-  align-items: center;
-  gap: 1rem;
-  padding: 2rem 0 3rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  color: var(--muted);
-}
-
-.footer-brand {
-  display: flex;
-  flex-direction: column;
-  gap: 0.42rem;
-}
-
-.footer-brand p {
-  margin: 0;
-  text-transform: lowercase;
-  letter-spacing: 0.18em;
-  font-size: 0.8rem;
-  color: var(--text);
-}
-
-.footer-brand span {
-  color: rgba(232, 244, 255, 0.62);
-  font-size: 0.8rem;
-}
-
-.footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 1.25rem;
-  flex-wrap: wrap;
-}
-
-.footer-links a {
-  color: var(--muted);
-}
-
-.footer-meta {
-  text-align: right;
-  color: var(--text);
-  font-weight: 600;
-}
-
-@media (max-width: 980px) {
-  .hero,
-  .story-panel,
-  .footer {
-    grid-template-columns: 1fr;
+const GAMES = [
+  { title: 'Neon Drift', genre: 'Arcade', accent: '#ff8ab6', url: 'https://www.google.com/search?q=neon+drift+game' },
+  { title: '1v1 LOL', genre: 'Action', accent: '#ffdf73', url: 'https://www.google.com/search?q=1v1+lol' },
+  { title: '2048', genre: 'Puzzle', accent: '#7fe3ff', url: 'https://www.google.com/search?q=2048+game' },
+  { title: '2D Rocket League', genre: 'Racing', accent: '#7ee7b3', url: 'https://www.google.com/search?q=2d+rocket+league' },
+  { title: '8 Ball Pool', genre: 'Skill', accent: '#ffc87d', url: 'https://www.google.com/search?q=8+ball+pool' },
+  { title: 'Achievement Unlocked', genre: 'Skill', accent: '#f8d2ff', url: 'https://www.google.com/search?q=achievement+unlocked' },
+  { title: 'Age of War', genre: 'Strategy', accent: '#7fddff', url: 'https://www.google.com/search?q=age+of+war+game' },
+  { title: 'Alien Shooter', genre: 'Action', accent: '#ff9a9a', url: 'https://www.google.com/search?q=alien+shooter+game' },
+  { title: 'Basketball Stars', genre: 'Sports', accent: '#ffb38a', url: 'https://www.google.com/search?q=basketball+stars+game' },
+  { title: 'A Small World Cup', genre: 'Sports', accent: '#9ae0ff', url: 'https://www.google.com/search?q=small+world+cup+game' },
+  { title: 'Empire', genre: 'Strategy', accent: '#d3b8ff', url: 'https://www.google.com/search?q=empire+strategy+game' },
+  { title: 'Arcade Rush', genre: 'Arcade', accent: '#ffb1c9', url: 'https://www.google.com/search?q=arcade+rush+game' },
+];
+
+const SONGS = [
+  { title: 'Six Shot Morning', artist: 'Fontaines D.C.', accent: '#ff9dc2', notes: [262, 330, 392, 440, 392, 330] },
+  { title: 'Dopamine Chamber', artist: 'The Prime', accent: '#ffd788', notes: [220, 247, 294, 330, 294, 247] },
+  { title: 'The X Tape 2', artist: 'Kairo', accent: '#7fe4d1', notes: [196, 220, 262, 330, 262, 220] },
+  { title: 'EG.0', artist: 'Luna Echo', accent: '#b1d8ff', notes: [293, 349, 392, 440, 392, 349] },
+  { title: 'ALOUD!', artist: 'Nova Bloom', accent: '#f7a0ff', notes: [246, 294, 329, 392, 329, 294] },
+  { title: 'Afterglow', artist: 'Silk Fade', accent: '#8ae2b7', notes: [196, 220, 246, 294, 246, 220] },
+];
+
+let currentView = 'home';
+let audioCtx = null;
+let activeSongIndex = 0;
+let musicTimer = null;
+let uid = 0;
+
+const viewMap = {
+  home: document.getElementById('homeView'),
+  games: document.getElementById('gamesView'),
+  music: document.getElementById('musicView'),
+  assistant: document.getElementById('assistantView'),
+};
+
+function setView(name) {
+  currentView = name;
+  Object.entries(viewMap).forEach(([key, el]) => {
+    if (!el) return;
+    el.classList.toggle('active', key === name);
+  });
+
+  document.querySelectorAll('.tab').forEach((tab) => {
+    tab.classList.toggle('active', tab.dataset.view === name);
+  });
+
+  if (name === 'games') renderGames();
+  if (name === 'music') renderMusic();
+  if (name === 'assistant') renderAssistant();
+}
+
+function formatTime() {
+  const now = new Date();
+  const time = now.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true });
+  const date = now.toLocaleDateString([], { weekday: 'long', month: 'long', day: 'numeric' });
+
+  const timeNode = document.getElementById('clock-time');
+  const dateNode = document.getElementById('clock-date');
+
+  if (timeNode) timeNode.textContent = time;
+  if (dateNode) dateNode.textContent = date;
+}
+
+function openLink(url) {
+  window.open(url, '_blank', 'noopener,noreferrer');
+}
+
+function buildGames() {
+  const grid = document.getElementById('gamesGrid');
+  if (!grid) return;
+
+  grid.innerHTML = GAMES.map((game, index) => `
+    <button class="game-card" type="button" data-index="${index}" style="--card-accent:${game.accent};">
+      <div class="game-art" style="background: linear-gradient(135deg, ${game.accent}80, rgba(255,255,255,0.12));">
+        <span class="favorite">☆</span>
+      </div>
+      <div class="game-info">
+        <span class="game-genre">${game.genre}</span>
+        <strong>${game.title}</strong>
+      </div>
+    </button>
+  `).join('');
+
+  grid.querySelectorAll('.game-card').forEach((card) => {
+    card.addEventListener('click', () => {
+      const index = Number(card.dataset.index);
+      const game = GAMES[index];
+      openLink(game.url);
+    });
+  });
+}
+
+function renderGames() {
+  buildGames();
+  const canvas = document.getElementById('tinyGame');
+  const startBtn = document.getElementById('gameStartBtn');
+  const pauseBtn = document.getElementById('gamePauseBtn');
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d');
+  const state = {
+    running: false,
+    score: 0,
+    best: Number(localStorage.getItem('cherri-best') || 0),
+    playerX: canvas.width / 2,
+    playerY: canvas.height - 42,
+    playerWidth: 28,
+    playerHeight: 28,
+    obstacles: [],
+    keys: { left: false, right: false },
+    gameLoop: null,
+    lastSpawn: 0,
+  };
+
+  function resetGame() {
+    state.score = 0;
+    state.playerX = canvas.width / 2;
+    state.obstacles = [];
+    state.lastSpawn = 0;
+    draw();
   }
 
-  .feature-grid,
-  .platform-grid,
-  .ai-grid,
-  .game-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  function spawnObstacle() {
+    const size = 20 + Math.random() * 22;
+    state.obstacles.push({
+      x: Math.random() * (canvas.width - size),
+      y: -size,
+      size,
+      speed: 1.2 + Math.random() * 1.7,
+    });
   }
 
-  .footer {
-    display: grid;
-    justify-items: center;
-    text-align: center;
+  function update() {
+    if (!state.running) return;
+
+    if (state.keys.left) state.playerX -= 4.2;
+    if (state.keys.right) state.playerX += 4.2;
+    state.playerX = Math.max(18, Math.min(canvas.width - 18, state.playerX));
+
+    const now = Date.now();
+    if (now - state.lastSpawn > 720) {
+      spawnObstacle();
+      state.lastSpawn = now;
+    }
+
+    state.obstacles.forEach((obs) => {
+      obs.y += obs.speed;
+    });
+
+    state.obstacles = state.obstacles.filter((obs) => obs.y < canvas.height + 30);
+
+    state.obstacles.forEach((obs) => {
+      const colliding =
+        state.playerX < obs.x + obs.size &&
+        state.playerX + state.playerWidth > obs.x &&
+        state.playerY < obs.y + obs.size &&
+        state.playerY + state.playerHeight > obs.y;
+
+      if (colliding) {
+        state.running = false;
+        state.best = Math.max(state.best, state.score);
+        localStorage.setItem('cherri-best', String(state.best));
+        const bestNode = document.getElementById('bestScore');
+        if (bestNode) bestNode.textContent = `Best: ${state.best}`;
+      }
+    });
+
+    state.score += 0.25;
+    const scoreNode = document.getElementById('gameScore');
+    if (scoreNode) scoreNode.textContent = `Score: ${Math.floor(state.score)}`;
+
+    draw();
   }
 
-  .footer-meta {
-    text-align: center;
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.02)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = '#ffb7d0';
+    ctx.fillRect(state.playerX - state.playerWidth / 2, state.playerY - state.playerHeight / 2, state.playerWidth, state.playerHeight);
+
+    ctx.fillStyle = '#ffd9a8';
+    state.obstacles.forEach((obs) => {
+      ctx.fillRect(obs.x, obs.y, obs.size, obs.size);
+    });
+
+    if (!state.running) {
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+      ctx.font = 'bold 22px Inter, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText('Tap start to play', canvas.width / 2, canvas.height / 2);
+    }
+  }
+
+  function tick() {
+    update();
+    state.gameLoop = requestAnimationFrame(tick);
+  }
+
+  startBtn?.addEventListener('click', () => {
+    state.running = true;
+    resetGame();
+    state.running = true;
+  });
+
+  pauseBtn?.addEventListener('click', () => {
+    state.running = !state.running;
+  });
+
+  window.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft' || event.key.toLowerCase() === 'a') state.keys.left = true;
+    if (event.key === 'ArrowRight' || event.key.toLowerCase() === 'd') state.keys.right = true;
+  });
+
+  window.addEventListener('keyup', (event) => {
+    if (event.key === 'ArrowLeft' || event.key.toLowerCase() === 'a') state.keys.left = false;
+    if (event.key === 'ArrowRight' || event.key.toLowerCase() === 'd') state.keys.right = false;
+  });
+
+  const bestNode = document.getElementById('bestScore');
+  if (bestNode) bestNode.textContent = `Best: ${state.best}`;
+
+  draw();
+  state.gameLoop = requestAnimationFrame(tick);
+}
+
+function renderMusic() {
+  const list = document.getElementById('songList');
+  const nowPlaying = document.getElementById('nowPlaying');
+  if (!list) return;
+
+  list.innerHTML = SONGS.map((song, index) => `
+    <button class="song-item ${index === activeSongIndex ? 'active' : ''}" type="button" data-song-index="${index}">
+      <span class="song-art" style="background:${song.accent}66;"></span>
+      <span class="song-meta">
+        <strong>${song.title}</strong>
+        <small>${song.artist}</small>
+      </span>
+    </button>
+  `).join('');
+
+  list.querySelectorAll('.song-item').forEach((button) => {
+    button.addEventListener('click', () => {
+      const idx = Number(button.dataset.songIndex);
+      playSong(idx);
+    });
+  });
+
+  const playButton = document.getElementById('musicPlayToggle');
+  const prevButton = document.getElementById('musicPrev');
+  const nextButton = document.getElementById('musicNext');
+
+  playButton?.addEventListener('click', () => {
+    if (musicTimer) {
+      stopMusic();
+    } else {
+      playSong(activeSongIndex);
+    }
+  });
+
+  prevButton?.addEventListener('click', () => {
+    const nextIndex = (activeSongIndex - 1 + SONGS.length) % SONGS.length;
+    playSong(nextIndex);
+  });
+
+  nextButton?.addEventListener('click', () => {
+    const nextIndex = (activeSongIndex + 1) % SONGS.length;
+    playSong(nextIndex);
+  });
+
+  if (nowPlaying) {
+    const song = SONGS[activeSongIndex];
+    nowPlaying.textContent = `${song.title} • ${song.artist}`;
   }
 }
 
-@media (max-width: 720px) {
-  .nav {
-    flex-wrap: wrap;
-    justify-content: center;
+function ensureAudioCtx() {
+  if (!audioCtx) {
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContextClass) return null;
+    audioCtx = new AudioContextClass();
+  }
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+  return audioCtx;
+}
+
+function stopMusic() {
+  if (musicTimer) {
+    clearInterval(musicTimer);
+    musicTimer = null;
   }
 
-  .nav-links {
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
+  const playButton = document.getElementById('musicPlayToggle');
+  if (playButton) playButton.textContent = 'Play';
 
-  .feature-grid,
-  .platform-grid,
-  .ai-grid,
-  .game-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .search-row {
-    width: 100%;
-    align-items: stretch;
-  }
-
-  #gameSearch,
-  .filter-pills {
-    width: 100%;
-    justify-content: flex-start;
-  }
-
-  .community-card {
-    align-items: flex-start;
+  if (audioCtx) {
+    try {
+      audioCtx.close();
+    } catch (error) {
+      // ignored
+    }
+    audioCtx = null;
   }
 }
 
-@media (max-width: 520px) {
-  .hero {
-    padding-top: 4rem;
-  }
+function playSong(index) {
+  const song = SONGS[index];
+  if (!song) return;
 
-  .game-controls {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+  activeSongIndex = index;
+  const nowPlaying = document.getElementById('nowPlaying');
+  if (nowPlaying) nowPlaying.textContent = `${song.title} • ${song.artist}`;
 
-  .button-row {
-    width: 100%;
-  }
+  stopMusic();
+  const ctx = ensureAudioCtx();
+  const playButton = document.getElementById('musicPlayToggle');
+  if (playButton) playButton.textContent = 'Pause';
 
-  .button-row .button {
-    flex: 1;
-  }
+  if (!ctx) return;
+
+  const master = ctx.createGain();
+  master.gain.value = 0.05;
+  master.connect(ctx.destination);
+
+  let step = 0;
+  musicTimer = setInterval(() => {
+    const frequency = song.notes[step % song.notes.length];
+    const oscillator = ctx.createOscillator();
+    const gain = ctx.createGain();
+    oscillator.type = 'sawtooth';
+    oscillator.frequency.value = frequency;
+    gain.gain.value = 0.0001;
+
+    oscillator.connect(gain);
+    gain.connect(master);
+
+    gain.gain.exponentialRampToValueAtTime(0.12, ctx.currentTime + 0.01);
+    gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.28);
+    oscillator.start(ctx.currentTime);
+    oscillator.stop(ctx.currentTime + 0.3);
+
+    step += 1;
+  }, 240);
 }
+
+function renderAssistant() {
+  const suggestions = document.getElementById('assistantSuggestions');
+  if (!suggestions) return;
+
+  const prompts = [
+    'Explain quantum computing',
+    'Python JSON parser',
+    'Creative startup ideas',
+    'Dark sci-fi story',
+  ];
+
+  suggestions.innerHTML = prompts.map((prompt) => `
+    <button type="button" class="prompt-chip" data-prompt="${prompt}">${prompt}</button>
+  `).join('');
+
+  suggestions.querySelectorAll('.prompt-chip').forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const query = chip.dataset.prompt;
+      const input = document.getElementById('assistantInput');
+      if (input) input.value = query;
+    });
+  });
+
+  const askButton = document.getElementById('askButton');
+  askButton?.addEventListener('click', () => {
+    const input = document.getElementById('assistantInput');
+    if (!input || !input.value.trim()) return;
+    const convo = document.getElementById('assistantConversation');
+    const bubble = document.createElement('div');
+    bubble.className = 'chat-bubble user';
+    bubble.textContent = input.value.trim();
+    convo.appendChild(bubble);
+
+    const response = document.createElement('div');
+    response.className = 'chat-bubble bot';
+    response.textContent = 'I can help with that inside cherri. Try a game, music, or content search next.';
+    convo.appendChild(response);
+    convo.scrollTop = convo.scrollHeight;
+    input.value = '';
+  });
+}
+
+function init() {
+  formatTime();
+  setInterval(formatTime, 30000);
+
+  document.querySelectorAll('[data-view]').forEach((node) => {
+    node.addEventListener('click', () => setView(node.dataset.view));
+  });
+
+  document.querySelectorAll('[data-action="media"]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const target = button.dataset.target;
+      const name = button.dataset.name || target;
+      const url = {
+        youtube: `https://www.youtube.com/results?search_query=${encodeURIComponent(name)}`,
+        spotify: `https://open.spotify.com/search/${encodeURIComponent(name)}`,
+        discord: 'https://discord.com',
+        twitch: `https://www.twitch.tv/search?term=${encodeURIComponent(name)}`,
+      }[target] || '#';
+      openLink(url);
+    });
+  });
+
+  const homeTiles = document.querySelectorAll('[data-goto]');
+  homeTiles.forEach((tile) => {
+    tile.addEventListener('click', () => setView(tile.dataset.goto));
+  });
+
+  renderGames();
+  renderMusic();
+  renderAssistant();
+  setView('home');
+}
+
+window.addEventListener('DOMContentLoaded', init);
